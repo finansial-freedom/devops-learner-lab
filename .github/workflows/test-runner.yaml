@@ -26,6 +26,7 @@ jobs:
 
       - name: Verify Docker 
         run: | 
+          cd /home/ssm-user
           echo "=== Docker Verification ===" 
           docker --version 
           docker run --rm hello-world 
@@ -40,7 +41,7 @@ jobs:
           echo "AWS Region: ${AWS_REGION:-us-west-2}" 
           echo "AWS CLI is configured correctly!" 
           echo "=============================" 
-          
+
       - name: Verify Git 
         run: | 
           echo "=== Git Verification ===" 
