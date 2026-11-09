@@ -26,7 +26,7 @@ jobs:
 
       - name: Verify Docker 
         run: | 
-          cd /home/ssm-user
+          sudo su
           echo "=== Docker Verification ===" 
           docker --version 
           docker run --rm hello-world 
