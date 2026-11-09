@@ -13,15 +13,11 @@ jobs:
       - name: Print runner info 
         run: | 
           echo "=== Runner Environment ===" 
-          echo "Hostname:    
-          echo "OS:          
-          $(hostname)" 
-          $(uname -a)" 
-          echo "User:        
-          $(whoami)" 
+          echo "Hostname:     $(hostname)"   
+          echo "OS:           $(uname -a)"     
+          echo "User:         $(whoami)"
           echo "Working Dir:  $(pwd)" 
-          echo "CPU Cores:   
-          $(nproc)" 
+          echo "CPU Cores:    $(nproc)" 
           echo "Memory:" 
           free -h 
           echo "Disk:" 
@@ -34,14 +30,17 @@ jobs:
           docker --version 
           docker run --rm hello-world 
           echo "Docker is working correctly!" 
-          echo "===========================" - name: Verify AWS CLI 
-          run: | 
+          echo "===========================" 
+
+      - name: Verify AWS CLI 
+        run: | 
           echo "=== AWS CLI Verification ===" 
           aws --version 
           aws sts get-caller-identity 
           echo "AWS Region: ${AWS_REGION:-us-west-2}" 
           echo "AWS CLI is configured correctly!" 
           echo "=============================" 
+          
       - name: Verify Git 
         run: | 
           echo "=== Git Verification ===" 
